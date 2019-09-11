@@ -1,6 +1,6 @@
 ## Dotfiles for my personal dev enviornment during FIS
 
-###I nstallation
+### Installation
 DESCRIBE INSTALL PROCESS
 
 #### Dotfiles
