@@ -1,0 +1,31 @@
+# Start with system path
+# Retrieve it from getconf, otherwise it's just current $PATH
+
+PATH=$($(command -v getconf) PATH)
+
+# Prepend new items to path (if directory exists)
+
+PATH=/bin:$PATH
+PATH=/usr/bin:$PATH
+PATH=/usr/local/bin:$PATH
+PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
+PATH=/usr/local/opt/grep/libexec/gnubin:$PATH
+PATH=/usr/local/opt/ruby/bin:$PATH
+PATH=/usr/local/opt/sqlite/bin:$PATH
+PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
+PATH=$HOME/bin:$PATH
+PATH=$HOME/.nvm/versions/node/v12.10.0/bin:$PATH
+PATH=$HOME/.rbenv.shims:$PATH
+PATH=/sbin:$PATH
+PATH=/usr/sbin:$PATH
+PATH=/usr/local/sbin:$PATH
+
+# Remove duplicates (preserving prepended items)
+# Source: http://unix.stackexchange.com/a/40755
+
+PATH=$(echo -n $PATH | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}')
+
+# Wrap up
+
+export PATH
