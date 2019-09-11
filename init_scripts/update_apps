@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+echo '♢ Updating App Store apps'
+mas upgrade
+
+echo ''
+echo '♢ Updating Brew apps'
+brew update >/dev/null
+brew outdated | xargs -n1 brew upgrade
+
+echo ''
+echo '♢ Updating Brew Cask apps'
+brew cask outdated | grep -v real-vnc | xargs -n1 brew cask install --force
+
+if [ "$1" == "--all" ]; then
+    echo ''
+    echo '♢ Updating gem (Ruby)'
+    gem update
+
+    echo ''
+    echo '♢ Updating npm (JS)'
+    npm update -g
+fi
