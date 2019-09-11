@@ -1,9 +1,9 @@
-##Dotfiles for my personal dev enviornment during FIS
+## Dotfiles for my personal dev enviornment during FIS
 
-###Installation
+###I nstallation
 DESCRIBE INSTALL PROCESS
 
-####Dotfiles
+#### Dotfiles
 - ```bashdot install default``` to install contents of 'default' profile from dotfiles directory
 
 
@@ -20,7 +20,7 @@ DESCRIBE INSTALL PROCESS
 
 
 
-###To do
+### To do
 - Write comprehensive Brewfile
     - Sort out which are casks and be safely automated
 - Edit mac os initialization scripts when you've got a chance
