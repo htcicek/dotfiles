@@ -1,6 +1,4 @@
---skip-spring
---skip-test-unit
---skip-bundle
---skip-coffee
-#--webpack=vue
--d sqlite3
+--skip-test
+--skip-active-storage
+--skip-action-mailer
+--skip-action-mailbox

@@ -12,27 +12,6 @@ for file in ~/.{path,prompt,alias,functions,env}; do
 done;
 unset file;
 
-# check if night mode is enabled, then changes iterm profile
-if [[ "$(uname -s)" == "Darwin" ]]; then
-    sith() {
-        val=$(defaults read -g AppleInterfaceStyle 2>/dev/null)
-        if [[ $val == "Dark" ]]; then
-            i
-        fi
-    }
-
-    i() {
-        if [[ $ITERM_PROFILE == "Light" ]]; then
-            echo -ne "\033]50;SetProfile=Dark\a"
-            export ITERM_PROFILE="Dark"
-        else
-            echo -ne "\033]50;SetProfile=Light\a"
-            export ITERM_PROFILE="Light"
-        fi
-    }
-
-    sith
-fi
 
 # adds rbenv to shell
 eval "$(rbenv init -)"
@@ -42,3 +21,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+export PATH="$HOME/.cargo/bin:$PATH"
