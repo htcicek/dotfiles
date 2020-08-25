@@ -1,0 +1,4 @@
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+. ~/.asdf/asdf.sh
+. ~/.asdf/completions/asdf.bash
+. ~/.asdf/plugins/java/set-java-home.bash

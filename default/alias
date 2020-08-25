@@ -4,7 +4,6 @@
 alias ..="cd .."
 alias -- -="cd -"
 alias clove='git clone "$(pbpaste)" && cd $(basename $_ .git) && git checkout -b tc-soln'
-alias learns='git add . && git commit -am "met all specs" && git checkout master && git merge tc-soln && learn submit'
 alias prettyair='exec 3<&1;bash <&3 <(curl https://raw.githubusercontent.com/HTCicek/eslint-prettier-airbnb-react/tc-edits/eslint-prettier-config.sh 2> /dev/null)
 '
 
@@ -12,8 +11,7 @@ alias prettyair='exec 3<&1;bash <&3 <(curl https://raw.githubusercontent.com/HTC
 alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias p="cd ~/projects"
-alias g="git"
+alias p="cd ~/Development/code"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`

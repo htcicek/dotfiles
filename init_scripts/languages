@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# associative array of languages to urls
+declare -A sources = (
+  ["ruby"]="https://github.com/asdf-vm/asdf-ruby.git"
+  ["nodjs"]="https://github.com/asdf-vm/asdf-nodejs.git"
+  ["yarn"]="https://github.com/twuni/asdf-yarn.git"
+  ["erlang"]="https://github.com/asdf-vm/asdf-erlang.git"
+  ["elixir"]="https://github.com/asdf-vm/asdf-elixir.git"
+)
+
+# TODO test this
+add_or_update_plugin() {
+  local lang="$1"
+  local url="$2"
+
+  if ! asdf plugin-list | grep -Fq "$name"; then
+    asdf plugin-add "$name" "$url"
+  else
+    asdf plugin-update "$name"
+  fi
+}
+
+# TODO test this, especially with node
+install_language() {
+  local language="$1"
+
+  asdf install "$language" "$version"
+  if "$language" == "nodejs"; then
+    bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
+  fi
+}
+
+for source in "${!sources[@]}"; do
+  add_or_update_plugin $source $sources[$source]
+done
+
+for language in "${!sources[@]}"; do
+  install_language $source latest
+done

@@ -1,19 +1,46 @@
+# Homebrew stuff
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
+tap "homebrew/services"
 tap "caskroom/cask"
-tap "bashdot/tap"
-brew "git"
-brew "htop"
-brew "node"
-brew "tree"
+
+# Best Typeface
+tap "homebrew/cask-fonts"
 brew "font-fira-code"
+
+# Basic
+tap "bashdot/tap"
+brew "bashdot"
+
+# Unix
+brew "universal-ctags", args: ["HEAD"]
+brew "git"
+brew "openssl"
+
+
+# language related
+brew "asdf"
+brew "libyaml" # should come after openssl
+
+brew "coreutils"
+brew "gnupg"
+
+# Erlang and Elixr deps
+brew "autoconf"
+brew "wxmac"
+
+# Development and databases
+brew "sqlite"
+brew "postgres", restart_service: :changed
+brew "redis", restart_service: :changed
+
+# QOL
 cask "visual-studio-code"
 cask "shifty"
-brew "rbenv"
-brew "gmp"
-brew "gnupg"
-brew "mas"
-brew "node"
-brew "sqlite"
-brew "bashdot"
-brew "nvm"
+
+# Utilities
+brew "mas" # mac app store cli
+brew "the_silver_searcher"
+brew "fzf"
+brew "vim"
+brew "htop"
+brew "tree"
