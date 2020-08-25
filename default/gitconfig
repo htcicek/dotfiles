@@ -1,8 +1,9 @@
 [core]
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
   excludesfile = /Users/kvlt/.gitignore
+	editor = code --wait
 [credential]
-  helper = osx-keychain
+  helper = osxkeychain
 [alias]
   # clove = clone $(pbpaste)
   st = status

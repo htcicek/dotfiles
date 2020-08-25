@@ -24,11 +24,11 @@
     # Editors
     # Tells your shell that when a program requires various editors, use sublime.
     # The -w flag tells your shell to wait until sublime exits -- changes all "atom" to "code"
-    export VISUAL="code"
-    export SVN_EDITOR="code"
-    export GIT_EDITOR="code"
-    export EDITOR="code"
+    export VISUAL="code --wait"
+    export SVN_EDITOR="code --wait"
+    export GIT_EDITOR="code --wait"
+    export EDITOR="code --wait"
 
     # Version
     # What version of the Flatiron School bash profile this is
-    export FLATIRON_VERSION='1.1.1'
+    # export FLATIRON_VERSION='1.1.1'

@@ -1,5 +1,6 @@
+IRB.conf[:USE_READLINE] = true
+IRB.conf[:SAVE_HISTORY] = 1000
 class Object
-
   def lm
     (self.methods - Object.methods).sort
   end
