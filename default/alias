@@ -5,8 +5,7 @@ alias ..="cd .."
 alias -- -="cd -"
 alias clove='git clone "$(pbpaste)" && cd $(basename $_ .git)'
 
-alias prettyair='exec 3<&1;bash <&3 <(curl https://raw.githubusercontent.com/HTCicek/eslint-prettier-airbnb-react/tc-edits/eslint-prettier-config.sh 2> /dev/null)
-'
+alias prettyair='exec 3<&1;bash <&3 <(curl https://raw.githubusercontent.com/HTCicek/eslint-prettier-airbnb-react/tc-edits/eslint-prettier-config.sh 2> /dev/null)'
 
 # Shortcuts
 alias d="cd ~/Documents/Dropbox"
