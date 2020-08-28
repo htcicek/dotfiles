@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
 
 # associative array of languages to urls
-declare -A sources = (
+declare -A sources=(
   ["ruby"]="https://github.com/asdf-vm/asdf-ruby.git"
-  ["nodjs"]="https://github.com/asdf-vm/asdf-nodejs.git"
+  ["nodejs"]="https://github.com/asdf-vm/asdf-nodejs.git"
   ["yarn"]="https://github.com/twuni/asdf-yarn.git"
   ["erlang"]="https://github.com/asdf-vm/asdf-erlang.git"
   ["elixir"]="https://github.com/asdf-vm/asdf-elixir.git"
 )
 
-# TODO test this
 add_or_update_plugin() {
-  local lang="$1"
+  local name="$1"
   local url="$2"
 
   if ! asdf plugin-list | grep -Fq "$name"; then
@@ -19,22 +18,29 @@ add_or_update_plugin() {
   else
     asdf plugin-update "$name"
   fi
-}
 
-# TODO test this, especially with node
-install_language() {
-  local language="$1"
-
-  asdf install "$language" "$version"
+  # Import the Node.js release team's OpenPGP keys to main keyring
+  # Source: https://github.com/asdf-vm/asdf-nodejs#install
   if "$language" == "nodejs"; then
     bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
   fi
 }
 
+install_language() {
+  local language="$1"
+  local version="$2"
+
+  asdf install "$language" "$version"
+}
+
+# Good ol' sources
+# Iterate through the sources associative array
 for source in "${!sources[@]}"; do
-  add_or_update_plugin $source $sources[$source]
+  add_or_update_plugin "$source" "${sources[$source]}"
 done
 
+# Installs latest version of the language
+# TODO look into settings version numbers by passing in ENV variables or something
 for language in "${!sources[@]}"; do
-  install_language $source latest
+  install_language "$source" latest
 done

@@ -19,10 +19,15 @@ brew "openssl"
 
 # language related
 brew "asdf"
-brew "libyaml" # should come after openssl
+brew "libyaml"    # should come after openssl
 
 brew "coreutils"
 brew "gnupg"
+
+# Shell
+brew "bash"       # don't forget to update login shell to /usr/local/bin/bash
+brew "shellcheck"
+brew "bats-core"  # if you ever want to do TDD with bash
 
 # Erlang and Elixr deps
 brew "autoconf"
@@ -38,7 +43,7 @@ cask "visual-studio-code"
 cask "shifty"
 
 # Utilities
-brew "mas" # mac app store cli
+brew "mas"        # mac app store cli
 brew "the_silver_searcher"
 brew "fzf"
 brew "vim"
