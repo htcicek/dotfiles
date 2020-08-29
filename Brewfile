@@ -7,7 +7,7 @@ tap "caskroom/cask"
 tap "homebrew/cask-fonts"
 brew "font-fira-code"
 
-# Basic
+# Symlink dotfiles
 tap "bashdot/tap"
 brew "bashdot"
 
@@ -29,7 +29,7 @@ brew "bash"       # don't forget to update login shell to /usr/local/bin/bash
 brew "shellcheck"
 brew "bats-core"  # if you ever want to do TDD with bash
 
-# Erlang and Elixr deps
+# Erlang and Elixir deps
 brew "autoconf"
 brew "wxmac"
 
@@ -41,6 +41,7 @@ brew "redis", restart_service: :changed
 # QOL
 cask "visual-studio-code"
 cask "shifty"
+cask "iterm2"
 
 # Utilities
 brew "mas"        # mac app store cli
