@@ -1,0 +1,14 @@
+[user]
+	name = Turcan Cicek
+	email = hcicek2811@gmail.com
+[core]
+	editor = code --wait
+[color]
+	ui = auto
+[color "diff"]
+	meta = cyan
+	frag = magenta
+	old = red
+	new = green
+[pull]
+	rebase = false

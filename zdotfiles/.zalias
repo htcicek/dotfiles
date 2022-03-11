@@ -1,0 +1,12 @@
+# Reload the shell (i.e. invoke as a login shell)
+alias reload='exec ${SHELL} -l'
+
+export CLICOLOR=1
+export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+alias l="ls -alG"
+alias ll='ls -lFG'
+
+# Makes directories and changes into it
+function mcd() {
+  mkdir -p "$1" && cd "$1" || return;
+}
